@@ -1,0 +1,6 @@
+fotos-originais
+.next
+node_modules
+.env*
+!.env.example
+.claude
