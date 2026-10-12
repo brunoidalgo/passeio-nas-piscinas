@@ -10,3 +10,10 @@ npm install
 cp .env.example .env.local
 npm run dev
 ```
+
+## Publicação
+
+Site no ar: https://passeio-nas-piscinas.vercel.app
+
+O repositório está conectado à Vercel: todo `git push` na branch `main` publica o site automaticamente.
+Pushes em outras branches geram uma URL de pré-visualização.
