@@ -10,7 +10,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const facts = [
   { icon: MapPin, label: "Local", value: site.location.beach },
   { icon: Waves, label: "Passeio", value: "Jangada até as piscinas" },
-  { icon: Camera, label: "Fotos", value: "Vela, boia e peixinhos" },
+  { icon: Camera, label: "Fotos", value: "4 pacotes de fotos" },
 ];
 
 export function HeroContent() {
@@ -49,10 +49,10 @@ export function HeroContent() {
           {hero.cta}
         </WhatsAppButton>
         <a
-          href="#momentos"
+          href="#pacotes-de-fotos"
           className="inline-flex w-full items-center justify-center rounded-full bg-white px-7 py-4 font-semibold uppercase tracking-wide text-petrol-800 shadow-lg transition hover:-translate-y-0.5 hover:bg-cream sm:w-auto"
         >
-          Ver o passeio
+          Ver pacotes de fotos
         </a>
       </motion.div>
 

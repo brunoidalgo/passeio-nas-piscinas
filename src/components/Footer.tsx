@@ -1,10 +1,11 @@
-import { Sailboat } from "lucide-react";
+import Image from "next/image";
 import { site } from "@/lib/site";
+import { InstagramIcon } from "./InstagramIcon";
 import { WhatsAppButton } from "./WhatsAppButton";
 
 const links = [
   { href: "#como-reservar", label: "Como reservar" },
-  { href: "#momentos", label: "O passeio" },
+  { href: "#pacotes-de-fotos", label: "Pacotes de fotos" },
   { href: "#galeria", label: "Fotos" },
   { href: "#duvidas", label: "Dúvidas" },
 ];
@@ -15,10 +16,7 @@ export function Footer() {
     <footer className="bg-petrol-800 pb-28 pt-16 text-white/70">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
-          <p className="flex items-center gap-2 text-white">
-            <Sailboat className="size-6 text-sun-400" />
-            <span className="font-script text-2xl">{site.name}</span>
-          </p>
+          <Image src={site.logo.src} alt={site.name} width={site.logo.width} height={site.logo.height} className="h-16 w-auto" />
           <address className="mt-4 text-sm not-italic leading-relaxed">
             Passeio de jangada nas piscinas naturais
             <br />
@@ -26,6 +24,17 @@ export function Footer() {
             <br />
             {location.region}, {location.stateName}
           </address>
+          {site.instagram && (
+            <a
+              href={site.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-sun-400"
+            >
+              <InstagramIcon className="size-5" />
+              {site.instagramHandle}
+            </a>
+          )}
         </div>
 
         <nav aria-label="Rodapé">
@@ -38,13 +47,6 @@ export function Footer() {
                 </a>
               </li>
             ))}
-            {site.instagram && (
-              <li>
-                <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="transition hover:text-sun-400">
-                  Instagram
-                </a>
-              </li>
-            )}
           </ul>
         </nav>
 

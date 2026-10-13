@@ -5,7 +5,7 @@ export type CtaLocation =
   | "header"
   | "hero"
   | "steps"
-  | "moments"
+  | "photo_packages"
   | "about"
   | "gallery"
   | "why_us"

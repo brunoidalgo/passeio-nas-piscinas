@@ -7,7 +7,7 @@ import { WhatsAppButton } from "./WhatsAppButton";
 
 const stats = [
   { value: 100, prefix: "+", suffix: " km", label: "de Maceió, no litoral norte" },
-  { value: 4, suffix: "", label: "cenários para fotos" },
+  { value: 4, suffix: "", label: "pacotes de fotos no passeio" },
   { value: 100, suffix: "%", label: "fotos reais do passeio" },
   { value: 1, suffix: " clique", label: "até o WhatsApp" },
 ];

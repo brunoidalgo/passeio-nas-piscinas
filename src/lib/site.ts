@@ -8,7 +8,8 @@
  */
 
 export const site = {
-  name: "Jangada Patacho",
+  name: "Patacho Piscina",
+  logo: { src: "/logo-patacho-piscina.png", width: 483, height: 250 },
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "pt_BR",
 
@@ -37,18 +38,18 @@ export const site = {
     geo: null as { latitude: number; longitude: number } | null,
   },
 
-  // Na vela da jangada aparece "@patacho_piscinas" — CONFIRMAR se é o perfil oficial e preencher a URL
-  instagram: "" as string,
+  instagram: "https://www.instagram.com/patacho_piscina/" as string,
+  instagramHandle: "@patacho_piscina",
 } as const;
 
 export type PhotoCategory = "vela" | "jangada" | "boia" | "peixinhos" | "rede" | "por-do-sol";
 
 export const photoCategories: { id: PhotoCategory; label: string; note?: string }[] = [
+  { id: "rede", label: "Na rede molhada" },
   { id: "vela", label: "Na vela" },
-  { id: "jangada", label: "Jangada colorida" },
+  { id: "jangada", label: "Na jangada colorida" },
   { id: "boia", label: "Na boia" },
   { id: "peixinhos", label: "Peixinhos" },
-  { id: "rede", label: "Na rede" },
   { id: "por-do-sol", label: "Pôr do sol", note: "Passeio à parte" },
 ];
 
@@ -68,11 +69,12 @@ const G = { width: 2100, height: 2400 }; // fotos meio-a-meio dentro d'água
 /**
  * Galeria — as fotos ficam em /public/fotos (já otimizadas para web).
  * Os originais em alta resolução estão em /fotos-originais (fora do site).
- * Para adicionar fotos novas (ex.: "na rede"), exporte em ~2400px de altura,
+ * Para adicionar fotos novas, exporte em ~2400px de altura (ou use o tamanho original, se menor),
  * coloque em /public/fotos e acrescente uma linha aqui.
  */
 export const photos: Photo[] = [
   { src: "/fotos/boia-piscinas-naturais-3.jpg", category: "boia", ...V, alt: "Vista de drone de casal relaxando em boia nas piscinas naturais do Patacho, com água turquesa e recifes" },
+  { src: "/fotos/rede-molhada-piscinas-naturais-1.jpg", category: "rede", width: 959, height: 1280, alt: "Casal deitado em redes coloridas estendidas sobre a água cristalina das piscinas naturais do Patacho" },
   { src: "/fotos/jangada-a-vela-patacho-1.jpg", category: "vela", ...V, alt: "Casal em pé na jangada a vela sobre o mar cristalino do Patacho, Alagoas" },
   { src: "/fotos/peixinhos-piscinas-naturais-patacho-1.jpg", category: "peixinhos", ...G, alt: "Amigas nas piscinas naturais do Patacho cercadas de peixinhos listrados" },
   { src: "/fotos/jangada-colorida-patacho-2.jpg", category: "jangada", ...V, alt: "Jangada colorida rosa ancorada nas piscinas naturais do Patacho com recifes ao fundo" },
@@ -81,6 +83,7 @@ export const photos: Photo[] = [
   { src: "/fotos/boia-piscinas-naturais-1.jpg", category: "boia", ...V, alt: "Casal deitado em boia flutuando nas piscinas naturais do Patacho, vista de cima" },
   { src: "/fotos/peixinhos-piscinas-naturais-patacho-2.jpg", category: "peixinhos", ...G, alt: "Casal abraçado na água cristalina com cardume de peixes nas piscinas naturais de Alagoas" },
   { src: "/fotos/jangada-colorida-patacho-1.jpg", category: "jangada", ...V, alt: "Amigas acenando no teto da jangada sobre o mar azul-turquesa do Patacho" },
+  { src: "/fotos/rede-molhada-piscinas-naturais-2.jpg", category: "rede", width: 720, height: 1280, alt: "Vista de drone de casal em redes vermelha e amarela sobre o mar transparente do Patacho" },
   { src: "/fotos/por-do-sol-passeio-1.jpg", category: "por-do-sol", ...V, alt: "Casal no barco colorido durante o passeio de pôr do sol no rio, em Alagoas" },
   { src: "/fotos/jangada-a-vela-patacho-3.jpg", category: "vela", ...V, alt: "Vista aérea de mulher deitada na jangada a vela sobre o mar transparente do Patacho" },
   { src: "/fotos/boia-piscinas-naturais-2.jpg", category: "boia", ...V, alt: "Boia colorida sobre a água clara e os recifes das piscinas naturais do Patacho" },
@@ -120,39 +123,40 @@ export const steps = [
 ];
 
 /**
- * Momentos do passeio (cards com foto). São os cenários das fotos que o cliente enviou.
- * CONFIRMAR com o dono quais estão inclusos no passeio padrão.
+ * Pacotes de fotos (carrossel). NÃO são passeios separados: são os pacotes de fotos
+ * feitos DURANTE o passeio de jangada. CONFIRMAR valores/condições com o dono antes de citar preço.
  */
-export const moments = [
+export const photoPackages = [
+  {
+    title: "Na rede molhada",
+    photo: "/fotos/rede-molhada-piscinas-naturais-1.jpg",
+    text: "Redes coloridas estendidas sobre a água cristalina. A foto de drone mais diferente do Patacho.",
+    items: ["Redes sobre as piscinas naturais", "Foto vista de cima (drone)", "Perfeito para casais e amigos"],
+  },
   {
     title: "Na vela",
     photo: "/fotos/jangada-a-vela-patacho-1.jpg",
-    text: "A jangada a vela tradicional de Alagoas, deslizando sobre a água transparente.",
-    items: ["Foto clássica do Patacho", "Mar calmo e raso", "Cenário icônico"],
+    text: "Você na jangada a vela tradicional de Alagoas, com o mar transparente ao redor.",
+    items: ["Jangada a vela do Patacho", "Fotos em pé e deitado na vela", "Cenário clássico de Alagoas"],
   },
   {
-    title: "Jangada colorida",
+    title: "Na jangada colorida",
     photo: "/fotos/jangada-colorida-patacho-2.jpg",
-    text: "Jangadas coloridas ancoradas nas piscinas, perfeitas para curtir em grupo.",
-    items: ["Ideal para casais e amigos", "Sombra e conforto", "Vista dos recifes"],
+    text: "Fotos no teto da jangada colorida ancorada nas piscinas, com os recifes de fundo.",
+    items: ["Jangada colorida nas piscinas", "Vista dos recifes", "Ótimo para grupos"],
   },
   {
     title: "Na boia",
     photo: "/fotos/boia-piscinas-naturais-3.jpg",
-    text: "Flutue na boia sobre a água cristalina e garanta a foto de drone mais bonita da viagem.",
-    items: ["Água morna e clara", "Relaxamento total", "Foto vista de cima"],
-  },
-  {
-    title: "Com os peixinhos",
-    photo: "/fotos/peixinhos-piscinas-naturais-patacho-1.jpg",
-    text: "Cardumes nadando ao seu redor nas piscinas formadas pelos recifes.",
-    items: ["Peixes de perto", "Foto meio dentro, meio fora", "Diversão para todas as idades"],
+    text: "Flutuando na boia sobre a água morna e clara, em fotos vistas do alto.",
+    items: ["Boia nas piscinas naturais", "Foto vista de cima (drone)", "Relaxamento total"],
   },
 ];
 
 /** Bloco "Por que reservar com a gente" */
 export const whyUs = [
   "Fotos reais do nosso passeio",
+  "Pacotes de fotos durante o passeio",
   "Reserva direta, sem intermediário",
   "Horário certo pela tábua de maré",
   "Atendimento rápido no WhatsApp",

@@ -7,7 +7,7 @@ import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
-import { Moments } from "@/components/Moments";
+import { PhotoPackages } from "@/components/PhotoPackages";
 import { Steps } from "@/components/Steps";
 import { Sunset } from "@/components/Sunset";
 import { WhyUs } from "@/components/WhyUs";
@@ -20,7 +20,7 @@ export default function Home() {
       <main>
         <Hero />
         <Steps />
-        <Moments />
+        <PhotoPackages />
         <About />
         <Gallery />
         <WhyUs />

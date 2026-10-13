@@ -22,7 +22,7 @@
 
 1. **Hero:** vídeo ou foto em tela cheia, título com a palavra-chave principal, CTA do WhatsApp e cartão com local, passeio e fotos.
 2. **3 passos para reservar:** cards numerados e faixa amarela "100% fotos reais".
-3. **Momentos do passeio:** carrossel com card central em destaque (Na vela, Jangada colorida, Na boia, Com os peixinhos). Cada card abre o WhatsApp com uma mensagem própria.
+3. **Pacotes de fotos (dentro do passeio):** carrossel com card central em destaque com os 4 pacotes: Na rede molhada, Na vela, Na jangada colorida e Na boia. Um aviso deixa claro que não são passeios separados. Cada card abre o WhatsApp já citando o pacote escolhido.
 4. **Sobre o Patacho:** blocos em grade (texto + o que está incluso, foto, contagem de fotos) e números em destaque.
 5. **Galeria:** fotos reais com filtros e lightbox.
 6. **Por que reservar com a gente:** diferenciais, aviso da maré, telefone em destaque e dicas.
@@ -70,7 +70,7 @@ Todo clique em botão de WhatsApp envia ao `dataLayer`:
 ```js
 {
   event: "whatsapp_click",
-  cta_location: "hero" | "header" | "steps" | "moments" | "about" | "gallery" |
+  cta_location: "hero" | "header" | "steps" | "photo_packages" | "about" | "gallery" |
                 "why_us" | "sunset" | "faq" | "final_cta" | "floating" | "footer",
   link_url: "wa.me"
 }
@@ -109,7 +109,7 @@ Use um banner de consentimento compatível com o **Consent Mode v2** (por exempl
   - "piscinas naturais alagoas", "passeio piscinas naturais porto de pedras"
 - **Negativas iniciais:** emprego, vaga, aluguel, venda, terreno, pousada (se não oferecer), "como chegar de ônibus"
 - **Anúncio (RSA):** use os títulos da página para manter a coerência anúncio ↔ página, por exemplo "Passeio de Jangada no Patacho", "Piscinas Naturais de Alagoas", "Reserve pelo WhatsApp", "Fotos Reais do Passeio", "Saídas na Maré Baixa".
-- **Extensões:** chamada (mesmo número), sitelinks para `#galeria`, `#momentos` e `#duvidas`, e frases de destaque.
+- **Extensões:** chamada (mesmo número), sitelinks para `#galeria`, `#pacotes-de-fotos` e `#duvidas`, e frases de destaque.
 - **Lance:** comece com *Maximizar cliques* com teto de CPC. Depois de cerca de 15–30 conversões, mude para *Maximizar conversões*.
 - **URL final:** `https://SEUDOMINIO/?utm_source=google&utm_medium=cpc&utm_campaign=jangada-patacho`
 
@@ -119,11 +119,12 @@ Use um banner de consentimento compatível com o **Consent Mode v2** (por exempl
 
 Estão marcadas com `CONFIRMAR` em `src/lib/site.ts`:
 
-- [ ] **Nome da marca:** está "Jangada Patacho". A vela da jangada mostra **@patacho_piscinas**. Esse é o perfil oficial? Se for, coloque a URL em `site.instagram`.
+- [x] **Marca:** Patacho Piscina (logo em `public/logo-patacho-piscina.png`, ícone em `src/app/icon.png`). Instagram: [@patacho_piscina](https://www.instagram.com/patacho_piscina/)
+- [x] **Fotos "na rede molhada"** adicionadas
+- [ ] **Pacotes de fotos:** o site mostra 4 pacotes dentro do passeio: *Na rede molhada, Na vela, Na jangada colorida, Na boia*. Confirmar os nomes e se há valor adicional (o site não cita preço)
 - [ ] **Ponto de embarque e coordenadas** (`site.location.geo`)
-- [ ] **O que está incluso** e quais "momentos" (vela, boia, jangada colorida) fazem parte do passeio padrão
+- [ ] **O que está incluso** no passeio
 - [ ] **Duração** do passeio (o FAQ hoje diz que varia conforme a maré)
-- [ ] **Fotos "na rede":** nenhuma das fotos enviadas mostra a rede. Quando houver, coloque em `public/fotos` e adicione em `photos` com `category: "rede"`. O filtro aparece sozinho.
 - [ ] **Vídeo do hero:** salve em `public/videos/hero.mp4` (opcional `hero.webm`). O site troca a foto pelo vídeo automaticamente.
   - Especificação: 10–20 s em loop, sem áudio, 1920×1080, H.264, **até ~6 MB**
   - Não encontrei vídeo gratuito confiável do Patacho em bancos de imagem. Um trecho do próprio drone (DJI) é o ideal e também é mais honesto para o anúncio.

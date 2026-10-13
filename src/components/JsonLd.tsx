@@ -22,6 +22,7 @@ export function JsonLd() {
       description: site.description,
       url,
       telephone: `+${site.whatsapp.number}`,
+      logo: `${url}${site.logo.src}`,
       image: images,
       address,
       ...(location.geo && {
